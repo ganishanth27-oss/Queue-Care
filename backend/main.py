@@ -107,26 +107,48 @@ app = FastAPI(
 default_origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://queue-care-g8gium20f-officialnishanth45-8712.vercel.app",
 ]
 
 configured_origins_raw = os.getenv("FRONTEND_URLS", "")
+configured_origins = []
 if configured_origins_raw:
-    configured_origins = [
-        origin.strip()
-        for origin in configured_origins_raw.split(",")
-        if origin.strip()
-    ]
-else:
-    configured_origins = []
+    for raw_origin in configured_origins_raw.split(","):
+        cleaned = raw_origin.strip().rstrip("/")
+        if cleaned:
+            configured_origins.append(cleaned)
 
-allowed_origins = list(dict.fromkeys(default_origins + configured_origins))
+allowed_origins = list(
+    dict.fromkeys(
+        [origin.rstrip("/") for origin in default_origins] + configured_origins
+    )
+)
+
+print(f"CORS: Allowed origins configured ({len(allowed_origins)} origins): {allowed_origins}")
+
+@app.middleware("http")
+async def cors_logging_middleware(request, call_next):
+    origin = request.headers.get("origin")
+    if origin and origin.rstrip("/") not in allowed_origins:
+        print(f"[CORS Warning] Request received from unconfigured origin: {origin}")
+    response = await call_next(request)
+    return response
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+    allow_headers=[
+        "Authorization",
+        "Content-Type",
+        "Accept",
+        "Origin",
+        "X-Requested-With",
+        "apikey",
+    ],
+    expose_headers=["*"],
+    max_age=600,
 )
 
 
