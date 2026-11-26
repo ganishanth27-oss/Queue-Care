@@ -1,0 +1,1055 @@
+/* =========================================
+   QUEUE CARE HOSPITAL
+   HOSPITAL STAFF LOGIN
+   ========================================= */
+
+.staff-login-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background: #f5f8fc;
+
+  color: #172033;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================
+   BACKGROUND DECORATIONS
+   ========================================= */
+
+.staff-decoration {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.staff-decoration-one {
+  width: 440px;
+  height: 440px;
+
+  top: -240px;
+  right: -120px;
+
+  background: rgba(37, 99, 235, 0.07);
+}
+
+.staff-decoration-two {
+  width: 330px;
+  height: 330px;
+
+  bottom: -190px;
+  left: -120px;
+
+  background: rgba(14, 165, 233, 0.06);
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
+
+.staff-login-container {
+  position: relative;
+  z-index: 1;
+
+  width: min(1180px, calc(100% - 48px));
+
+  min-height: calc(100vh - 70px);
+
+  margin: 0 auto;
+
+  padding: 48px 0;
+
+  display: grid;
+
+  grid-template-columns: 1fr 470px;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   LEFT SIDE
+   ========================================= */
+
+.staff-login-info {
+  padding: 10px 0;
+}
+
+
+/* Brand */
+
+.staff-brand {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 65px;
+
+  text-decoration: none;
+
+  color: inherit;
+}
+
+.staff-brand-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #0ea5e9
+    );
+
+  color: white;
+
+  font-size: 30px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 10px 25px
+    rgba(37, 99, 235, 0.22);
+}
+
+.staff-brand-text {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.staff-brand-text strong {
+  font-size: 19px;
+
+  line-height: 1.2;
+
+  color: #172033;
+}
+
+.staff-brand-text small {
+  font-size: 12px;
+
+  color: #718096;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   INFO CONTENT
+   ========================================= */
+
+.staff-info-content {
+  max-width: 590px;
+}
+
+.staff-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 13px;
+
+  border:
+    1px solid
+    #dbeafe;
+
+  border-radius: 999px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.staff-badge span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(34, 197, 94, 0.1);
+}
+
+.staff-info-content h1 {
+  margin: 22px 0 18px;
+
+  font-size: clamp(38px, 4vw, 58px);
+
+  line-height: 1.08;
+
+  letter-spacing: -2px;
+
+  color: #172033;
+}
+
+.staff-info-content h1 span {
+  display: block;
+
+  color: #2563eb;
+}
+
+.staff-info-content p {
+  max-width: 540px;
+
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   FEATURES
+   ========================================= */
+
+.staff-features {
+  display: flex;
+
+  gap: 27px;
+
+  margin-top: 45px;
+}
+
+.staff-feature {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.staff-feature-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  background: white;
+
+  border:
+    1px solid
+    #e5eaf1;
+
+  color: #2563eb;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 5px 18px
+    rgba(15, 23, 42, 0.04);
+}
+
+.staff-feature div:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.staff-feature strong {
+  font-size: 12px;
+
+  color: #172033;
+}
+
+.staff-feature span {
+  font-size: 10px;
+
+  color: #8994a6;
+}
+
+
+/* =========================================
+   LOGIN CARD
+   ========================================= */
+
+.staff-login-card {
+  background: white;
+
+  border:
+    1px solid
+    #e5eaf1;
+
+  border-radius: 24px;
+
+  padding: 38px;
+
+  box-shadow:
+    0 25px 70px
+    rgba(15, 23, 42, 0.08),
+    0 5px 20px
+    rgba(15, 23, 42, 0.03);
+}
+
+
+/* Heading */
+
+.staff-card-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.staff-card-icon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 27px;
+
+  font-weight: 700;
+}
+
+.staff-card-heading p {
+  margin: 0 0 5px;
+
+  color: #2563eb;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+.staff-card-heading h2 {
+  margin: 0;
+
+  font-size: 25px;
+
+  line-height: 1.2;
+
+  color: #172033;
+}
+
+.staff-card-heading span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #8490a3;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   SECURITY NOTE
+   ========================================= */
+
+.staff-security-note {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 25px;
+
+  padding: 13px 14px;
+
+  border:
+    1px solid
+    #dbeafe;
+
+  border-radius: 10px;
+
+  background: #f8fbff;
+}
+
+.staff-security-note > span {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #dcfce7;
+
+  color: #16a34a;
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+.staff-security-note div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.staff-security-note strong {
+  color: #334155;
+
+  font-size: 11px;
+}
+
+.staff-security-note small {
+  color: #8490a3;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.staff-login-form {
+  margin-top: 25px;
+}
+
+.staff-form-group {
+  margin-bottom: 19px;
+}
+
+.staff-form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #334155;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+/* Input */
+
+.staff-input-wrapper {
+  position: relative;
+}
+
+.staff-input-icon {
+  position: absolute;
+
+  left: 14px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #94a3b8;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  pointer-events: none;
+}
+
+.staff-input-wrapper input {
+  width: 100%;
+
+  height: 49px;
+
+  box-sizing: border-box;
+
+  padding:
+    0
+    14px
+    0
+    42px;
+
+  border:
+    1px solid
+    #dbe2ea;
+
+  border-radius: 10px;
+
+  background: white;
+
+  color: #172033;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.staff-input-wrapper input::placeholder {
+  color: #a5afbd;
+}
+
+.staff-input-wrapper input:focus {
+  border-color: #60a5fa;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(37, 99, 235, 0.08);
+}
+
+.staff-input-wrapper input:disabled {
+  background: #f8fafc;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   ERROR MESSAGE
+   ========================================= */
+
+.staff-login-message {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+
+  margin-bottom: 17px;
+
+  padding: 11px 13px;
+
+  border:
+    1px solid
+    #fecaca;
+
+  border-radius: 9px;
+
+  background: #fef2f2;
+
+  color: #b91c1c;
+}
+
+.staff-login-message > span {
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #ef4444;
+
+  color: white;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+.staff-login-message p {
+  margin: 0;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+   ========================================= */
+
+.staff-login-button {
+  width: 100%;
+
+  height: 51px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 22px
+    rgba(37, 99, 235, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.staff-login-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 13px 28px
+    rgba(37, 99, 235, 0.27);
+}
+
+.staff-login-button:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+}
+
+.staff-login-button > span:last-child {
+  font-size: 18px;
+}
+
+
+/* Loading spinner */
+
+.staff-button-spinner {
+  width: 16px;
+  height: 16px;
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.35);
+
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  animation:
+    staff-spin
+    0.7s
+    linear
+    infinite;
+}
+
+@keyframes staff-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================
+   BACK HOME
+   ========================================= */
+
+.staff-back-home {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 23px;
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.staff-back-home:hover {
+  color: #2563eb;
+}
+
+.staff-back-home span {
+  font-size: 16px;
+}
+
+
+/* =========================================
+   CARD FOOTER
+   ========================================= */
+
+.staff-card-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-top: 18px;
+
+  padding-top: 17px;
+
+  border-top:
+    1px solid
+    #edf0f4;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+
+  text-align: center;
+}
+
+.staff-card-footer span {
+  color: #22c55e;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   PAGE FOOTER
+   ========================================= */
+
+.staff-login-footer {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding:
+    0
+    20px
+    24px;
+
+  text-align: center;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+.staff-login-footer > span {
+  margin: 0 7px;
+
+  color: #cbd5e1;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1000px) {
+  .staff-login-container {
+    grid-template-columns: 1fr 430px;
+
+    gap: 35px;
+  }
+
+  .staff-features {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .staff-brand {
+    margin-bottom: 45px;
+  }
+
+  .staff-info-content h1 {
+    font-size: 43px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 820px) {
+  .staff-login-container {
+    width: min(
+      600px,
+      calc(100% - 32px)
+    );
+
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding:
+      32px
+      0
+      25px;
+  }
+
+  .staff-login-info {
+    text-align: center;
+  }
+
+  .staff-brand {
+    margin-bottom: 30px;
+  }
+
+  .staff-info-content {
+    margin: 0 auto;
+  }
+
+  .staff-badge {
+    margin: 0 auto;
+  }
+
+  .staff-info-content h1 {
+    font-size: 39px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .staff-info-content h1 span {
+    display: inline;
+  }
+
+  .staff-info-content p {
+    margin: 0 auto;
+  }
+
+  .staff-features {
+    flex-direction: row;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    margin-top: 28px;
+  }
+
+  .staff-login-card {
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 560px) {
+  .staff-login-container {
+    width: calc(100% - 24px);
+
+    padding-top: 20px;
+  }
+
+  .staff-brand {
+    margin-bottom: 27px;
+  }
+
+  .staff-brand-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    font-size: 25px;
+  }
+
+  .staff-brand-text strong {
+    font-size: 16px;
+  }
+
+  .staff-brand-text small {
+    font-size: 10px;
+  }
+
+  .staff-info-content h1 {
+    font-size: 32px;
+
+    line-height: 1.12;
+  }
+
+  .staff-info-content p {
+    font-size: 14px;
+
+    line-height: 1.65;
+  }
+
+  .staff-features {
+    gap: 10px;
+  }
+
+  .staff-feature {
+    padding: 8px 10px;
+
+    border-radius: 10px;
+
+    background:
+      rgba(255, 255, 255, 0.7);
+  }
+
+  .staff-feature-icon {
+    width: 34px;
+    height: 34px;
+
+    font-size: 15px;
+  }
+
+  .staff-feature strong {
+    font-size: 11px;
+  }
+
+  .staff-feature span {
+    font-size: 9px;
+  }
+
+  .staff-login-card {
+    padding: 25px 20px;
+
+    border-radius: 19px;
+  }
+
+  .staff-card-heading {
+    align-items: flex-start;
+  }
+
+  .staff-card-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 11px;
+
+    font-size: 23px;
+  }
+
+  .staff-card-heading h2 {
+    font-size: 21px;
+  }
+
+  .staff-card-heading span {
+    font-size: 11px;
+  }
+
+  .staff-login-footer {
+    padding-bottom: 18px;
+
+    font-size: 9px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL DEVICES
+   ========================================= */
+
+@media (max-width: 360px) {
+  .staff-login-container {
+    width: calc(100% - 18px);
+  }
+
+  .staff-info-content h1 {
+    font-size: 28px;
+  }
+
+  .staff-login-card {
+    padding: 21px 16px;
+  }
+
+  .staff-card-heading {
+    gap: 10px;
+  }
+
+  .staff-card-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .staff-card-heading h2 {
+    font-size: 19px;
+  }
+
+  .staff-info-content p {
+    font-size: 13px;
+  }
+}

@@ -104,16 +104,42 @@ app = FastAPI(
 # CORS
 # ============================================================
 
+default_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+configured_origins_raw = os.getenv("FRONTEND_URLS", "")
+if configured_origins_raw:
+    configured_origins = [
+        origin.strip()
+        for origin in configured_origins_raw.split(",")
+        if origin.strip()
+    ]
+else:
+    configured_origins = []
+
+allowed_origins = list(dict.fromkeys(default_origins + configured_origins))
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-    ],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# ============================================================
+# HEALTH CHECK
+# ============================================================
+
+@app.get("/health")
+def health_check():
+    return {
+        "status": "healthy",
+        "service": "Queue Care Hospital API"
+    }
 
 
 # ============================================================

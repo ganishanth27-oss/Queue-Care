@@ -29,3 +29,27 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Python environments
+venv/
+backend/venv/
+__pycache__/
+
+# Node dependencies
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Backup folders
+backend_backup*/
+frontend_backup*/
+frontend.zip
+
+# IDE
+.vscode/
+.idea/

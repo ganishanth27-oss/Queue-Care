@@ -1,37 +1,29 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../api";
 import { supabase } from "../supabaseClient";
 
 function PatientSignup() {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const signupPatient = async () => {
-    // Check fields
-    if (
-      !email.trim() ||
-      !password.trim() ||
-      !confirmPassword.trim()
-    ) {
+  const signupPatient = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
       setMessage("Please fill all fields.");
       return;
     }
 
-    // Check password
     if (password.length < 6) {
-      setMessage(
-        "Password must contain at least 6 characters."
-      );
+      setMessage("Password must contain at least 6 characters.");
       return;
     }
 
-    // Check passwords match
     if (password !== confirmPassword) {
       setMessage("Passwords do not match.");
       return;
@@ -40,153 +32,126 @@ function PatientSignup() {
     setLoading(true);
     setMessage("");
 
-    // Create Supabase account
-    const { data, error } =
-      await supabase.auth.signUp({
+    try {
+      const { data, error } = await supabase.auth.signUp({
         email: email.trim(),
-        password: password,
+        password,
       });
 
-    if (error) {
-      console.error(error);
+      if (error) {
+        setMessage(error.message);
+        return;
+      }
 
-      setMessage(error.message);
+      if (!data.user) {
+        setMessage("Account could not be created.");
+        return;
+      }
+
+      if (data.session) {
+        await api.post("/auth/patient-role");
+        setMessage("Patient account created successfully.");
+
+        setTimeout(() => {
+          navigate(
+            localStorage.getItem("selectedHospitalId")
+              ? "/patient"
+              : "/hospital-selection"
+          );
+        }, 800);
+      } else {
+        setMessage(
+          "Account created successfully. Please verify your email, then login."
+        );
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage("Account created, but patient setup could not be completed.");
+    } finally {
       setLoading(false);
-
-      return;
     }
-
-    if (!data.user) {
-      setMessage(
-        "Account could not be created."
-      );
-
-      setLoading(false);
-
-      return;
-    }
-
-    // Create patient profile
-    const { error: profileError } =
-      await supabase
-        .from("profiles")
-        .insert({
-          id: data.user.id,
-          role: "patient",
-        });
-
-    if (profileError) {
-      console.error(profileError);
-
-      setMessage(
-        "Account created, but patient profile could not be created."
-      );
-
-      setLoading(false);
-
-      return;
-    }
-
-    // If email confirmation is required
-    if (!data.session) {
-      setMessage(
-        "Account created successfully. Please verify your email, then login."
-      );
-
-      setLoading(false);
-
-      return;
-    }
-
-    // Account and profile created
-    setMessage(
-      "Patient account created successfully!"
-    );
-
-    setLoading(false);
-
-    setTimeout(() => {
-      navigate("/patient-login");
-    }, 1000);
   };
 
   return (
-    <div className="login-page">
+    <div className="auth-page patient-auth-page">
+      <div className="auth-shell">
+        <section className="auth-panel auth-copy">
+          <Link to="/" className="auth-brand">
+            <span className="auth-brand-mark">+</span>
+            <span>
+              <strong>Queue Care</strong>
+              <small>Patient Portal</small>
+            </span>
+          </Link>
 
-      <div className="login-card">
+          <div>
+            <p className="auth-kicker">New patient account</p>
+            <h1>Create one account for hospital token access.</h1>
+            <p>
+              After signup, choose a hospital and generate your token from the
+              patient dashboard.
+            </p>
+          </div>
+        </section>
 
-        <h1>
-          SPN Care Hospital
-        </h1>
+        <section className="auth-panel auth-card">
+          <div className="auth-card-heading">
+            <p>Patient signup</p>
+            <h2>Create account</h2>
+            <span>
+              Already registered? <Link to="/patient-login">Sign in</Link>
+            </span>
+          </div>
 
-        <h2>
-          Patient Signup
-        </h2>
+          <form className="auth-form" onSubmit={signupPatient}>
+            <label>
+              Email address
+              <input
+                type="email"
+                required
+                placeholder="patient@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={loading}
+              />
+            </label>
 
-        <p>
-          Create your patient account.
-        </p>
+            <label>
+              Password
+              <input
+                type="password"
+                required
+                placeholder="Minimum 6 characters"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                disabled={loading}
+              />
+            </label>
 
-        <input
-          type="email"
-          placeholder="Email Address"
-          value={email}
-          onChange={(e) =>
-            setEmail(e.target.value)
-          }
-        />
+            <label>
+              Confirm password
+              <input
+                type="password"
+                required
+                placeholder="Re-enter your password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                disabled={loading}
+              />
+            </label>
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) =>
-            setPassword(e.target.value)
-          }
-        />
+            {message && <div className="auth-alert">{message}</div>}
 
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) =>
-            setConfirmPassword(
-              e.target.value
-            )
-          }
-        />
+            <button type="submit" disabled={loading} className="auth-submit">
+              {loading ? "Creating account..." : "Create account"}
+            </button>
+          </form>
 
-        <button
-          onClick={signupPatient}
-          disabled={loading}
-        >
-          {loading
-            ? "Creating Account..."
-            : "Create Account"}
-        </button>
-
-        {message && (
-          <p className="login-message">
-            {message}
-          </p>
-        )}
-
-        <p>
-          Already have an account?
-        </p>
-
-        <Link to="/patient-login">
-          Patient Login
-        </Link>
-
-        <br />
-
-        <Link to="/">
-          ← Back to Home
-        </Link>
-
+          <Link to="/" className="auth-back">
+            Back to home
+          </Link>
+        </section>
       </div>
-
     </div>
   );
 }

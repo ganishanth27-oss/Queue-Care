@@ -1,10 +1,10 @@
 import axios from "axios";
 import { supabase } from "./supabaseClient";
 
-const API = "http://127.0.0.1:8000";
+export const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 export const api = axios.create({
-  baseURL: API,
+  baseURL: API_URL,
 });
 
 api.interceptors.request.use(

@@ -18,39 +18,26 @@ function Home() {
               ✚
             </div>
 
-            <div>
+            <div className="brand-text">
+
               <div className="brand-name">
-                SPN Care
+                Queue Care
               </div>
 
               <div className="brand-subtitle">
                 Hospital & Medical Centre
               </div>
+
             </div>
 
           </Link>
 
-
           <nav className="main-nav">
-
-            <a href="#home">
-              Home
-            </a>
-
-            <a href="#services">
-              Services
-            </a>
-
-            <a href="#portals">
-              Portals
-            </a>
-
-            <a href="#contact">
-              Contact
-            </a>
-
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#portals">Portals</a>
+            <a href="#contact">Contact</a>
           </nav>
-
 
           <Link
             to="/patient-login"
@@ -69,7 +56,6 @@ function Home() {
 
       <main id="home">
 
-
         {/* ==============================
             HERO
         ============================== */}
@@ -81,64 +67,41 @@ function Home() {
             <div className="hero-content">
 
               <div className="hero-badge">
-
                 <span className="status-dot"></span>
-
                 Digital Patient Services
-
               </div>
 
-
               <h1>
-
                 Quality care.
-
                 <br />
-
-                <span>
-                  Simpler visits.
-                </span>
-
+                <span>Simpler visits.</span>
               </h1>
 
-
               <p className="hero-description">
-
                 Manage your hospital visit digitally.
                 Get your token, monitor the queue, and
                 receive timely updates without waiting
                 unnecessarily.
-
               </p>
-
 
               <div className="hero-actions">
 
                 <Link
-                  to="/patient-signup"
+                  to="/patient-login"
                   className="primary-button"
                 >
-
                   Get Your Token
-
-                  <span>
-                    →
-                  </span>
-
+                  <span>→</span>
                 </Link>
-
 
                 <Link
                   to="/patient-login"
                   className="secondary-button"
                 >
-
                   Patient Login
-
                 </Link>
 
               </div>
-
 
               <div className="hero-trust">
 
@@ -148,12 +111,9 @@ function Home() {
                     ✓
                   </div>
 
-                  <span>
-                    Secure
-                  </span>
+                  <span>Secure</span>
 
                 </div>
-
 
                 <div className="trust-item">
 
@@ -161,12 +121,9 @@ function Home() {
                     ✓
                   </div>
 
-                  <span>
-                    Simple
-                  </span>
+                  <span>Simple</span>
 
                 </div>
-
 
                 <div className="trust-item">
 
@@ -174,9 +131,86 @@ function Home() {
                     ✓
                   </div>
 
+                  <span>Real-time</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* HERO VISUAL */}
+
+            <div className="hero-visual">
+
+              <div className="hero-circle hero-circle-one"></div>
+
+              <div className="hero-circle hero-circle-two"></div>
+
+              <div className="hospital-card">
+
+                <div className="hospital-card-header">
+
+                  <div className="mini-hospital-icon">
+                    ✚
+                  </div>
+
+                  <div>
+
+                    <strong>
+                      Queue Care
+                    </strong>
+
+                    <span>
+                      Patient Services
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <div className="token-display">
+
                   <span>
-                    Real-time
+                    Your Token
                   </span>
+
+                  <strong>
+                    #024
+                  </strong>
+
+                  <small>
+                    Please wait for your turn
+                  </small>
+
+                </div>
+
+                <div className="queue-status">
+
+                  <div>
+
+                    <span>
+                      Current Token
+                    </span>
+
+                    <strong>
+                      #019
+                    </strong>
+
+                  </div>
+
+                  <div>
+
+                    <span>
+                      Patients Ahead
+                    </span>
+
+                    <strong>
+                      05
+                    </strong>
+
+                  </div>
 
                 </div>
 
@@ -196,7 +230,6 @@ function Home() {
         <section className="quick-section">
 
           <div className="quick-container">
-
 
             <div className="quick-card">
 
@@ -285,7 +318,6 @@ function Home() {
 
             </div>
 
-
           </div>
 
         </section>
@@ -302,18 +334,15 @@ function Home() {
 
           <div className="section-container">
 
-
             <div className="section-heading">
 
               <div className="section-label">
                 OUR SERVICES
               </div>
 
-
               <h2>
                 Designed around your visit
               </h2>
-
 
               <p>
                 Simple digital services that make
@@ -325,25 +354,19 @@ function Home() {
 
             <div className="services-grid">
 
-
-              {/* SERVICE 1 */}
-
               <div className="service-card">
 
                 <div className="service-number">
                   01
                 </div>
 
-
                 <div className="service-icon">
                   🎫
                 </div>
 
-
                 <h3>
                   Online Registration
                 </h3>
-
 
                 <p>
                   Register as a patient and receive
@@ -354,24 +377,19 @@ function Home() {
               </div>
 
 
-              {/* SERVICE 2 */}
-
               <div className="service-card">
 
                 <div className="service-number">
                   02
                 </div>
 
-
                 <div className="service-icon">
                   📍
                 </div>
 
-
                 <h3>
                   Queue Tracking
                 </h3>
-
 
                 <p>
                   Check the current consultation
@@ -382,24 +400,19 @@ function Home() {
               </div>
 
 
-              {/* SERVICE 3 */}
-
               <div className="service-card">
 
                 <div className="service-number">
                   03
                 </div>
 
-
                 <div className="service-icon">
                   🔔
                 </div>
 
-
                 <h3>
                   Turn Notifications
                 </h3>
-
 
                 <p>
                   Receive an SMS notification when
@@ -407,7 +420,6 @@ function Home() {
                 </p>
 
               </div>
-
 
             </div>
 
@@ -427,18 +439,15 @@ function Home() {
 
           <div className="portal-container">
 
-
             <div className="portal-heading">
 
               <div className="section-label">
                 DIGITAL PORTALS
               </div>
 
-
               <h2>
                 Access the right portal
               </h2>
-
 
               <p>
                 Patients and hospital staff have
@@ -451,7 +460,9 @@ function Home() {
             <div className="portal-grid">
 
 
-              {/* PATIENT PORTAL */}
+              {/* ==============================
+                  PATIENT PORTAL
+              ============================== */}
 
               <div className="portal-card patient-portal">
 
@@ -461,18 +472,15 @@ function Home() {
                     👤
                   </div>
 
-
                   <span>
                     PATIENT
                   </span>
 
                 </div>
 
-
                 <h3>
                   Patient Portal
                 </h3>
-
 
                 <p>
                   Register for a token, view your
@@ -480,24 +488,20 @@ function Home() {
                   consultation updates.
                 </p>
 
-
                 <Link
                   to="/patient-login"
                   className="portal-button"
                 >
-
                   Patient Login
-
-                  <span>
-                    →
-                  </span>
-
+                  <span>→</span>
                 </Link>
 
               </div>
 
 
-              {/* NURSE PORTAL */}
+              {/* ==============================
+                  HOSPITAL STAFF PORTAL
+              ============================== */}
 
               <div className="portal-card nurse-portal">
 
@@ -507,18 +511,15 @@ function Home() {
                     🩺
                   </div>
 
-
                   <span>
                     STAFF
                   </span>
 
                 </div>
 
-
                 <h3>
-                  Nurse Portal
+                  Hospital Staff Portal
                 </h3>
-
 
                 <p>
                   Manage the patient queue,
@@ -526,22 +527,93 @@ function Home() {
                   and complete consultations.
                 </p>
 
-
                 <Link
                   to="/nurse-login"
                   className="portal-button"
                 >
-
                   Staff Login
-
-                  <span>
-                    →
-                  </span>
-
+                  <span>→</span>
                 </Link>
 
               </div>
 
+
+              {/* ==============================
+                  DOCTOR PORTAL
+              ============================== */}
+
+              <div className="portal-card doctor-portal">
+
+                <div className="portal-top">
+
+                  <div className="portal-icon">
+                    👨‍⚕️
+                  </div>
+
+                  <span>
+                    DOCTOR
+                  </span>
+
+                </div>
+
+                <h3>
+                  Doctor Portal
+                </h3>
+
+                <p>
+                  View your department queue,
+                  call patients, manage consultations,
+                  and complete visits.
+                </p>
+
+                <Link
+                  to="/doctor-login"
+                  className="portal-button"
+                >
+                  Doctor Login
+                  <span>→</span>
+                </Link>
+
+              </div>
+
+
+              {/* ==============================
+                  SUPER ADMIN PORTAL
+              ============================== */}
+
+              <div className="portal-card admin-portal">
+
+                <div className="portal-top">
+
+                  <div className="portal-icon">
+                    ⚙️
+                  </div>
+
+                  <span>
+                    ADMIN
+                  </span>
+
+                </div>
+
+                <h3>
+                  Super Admin Portal
+                </h3>
+
+                <p>
+                  Create hospitals, create hospital
+                  staff accounts, and assign staff
+                  to their respective hospitals.
+                </p>
+
+                <Link
+                  to="/super-admin-login"
+                  className="portal-button"
+                >
+                  Admin Login
+                  <span>→</span>
+                </Link>
+
+              </div>
 
             </div>
 
@@ -551,18 +623,16 @@ function Home() {
 
 
         {/* ==============================
-            EMERGENCY INFORMATION
+            EMERGENCY
         ============================== */}
 
         <section className="emergency-section">
 
           <div className="emergency-container">
 
-
             <div className="emergency-symbol">
               !
             </div>
-
 
             <div className="emergency-content">
 
@@ -570,11 +640,9 @@ function Home() {
                 EMERGENCY INFORMATION
               </div>
 
-
               <h2>
                 Medical emergency?
               </h2>
-
 
               <p>
                 For life-threatening emergencies,
@@ -584,13 +652,11 @@ function Home() {
 
             </div>
 
-
             <div className="emergency-number">
 
               <span>
                 Emergency
               </span>
-
 
               <strong>
                 108
@@ -598,11 +664,9 @@ function Home() {
 
             </div>
 
-
           </div>
 
         </section>
-
 
       </main>
 
@@ -616,11 +680,7 @@ function Home() {
         className="hospital-footer"
       >
 
-
         <div className="footer-container">
-
-
-          {/* FOOTER BRAND */}
 
           <div className="footer-brand">
 
@@ -630,13 +690,11 @@ function Home() {
                 ✚
               </div>
 
-
               <div>
 
                 <div className="brand-name">
-                  SPN Care
+                  Queue Care
                 </div>
-
 
                 <div className="brand-subtitle">
                   Hospital & Medical Centre
@@ -646,7 +704,6 @@ function Home() {
 
             </div>
 
-
             <p>
               Making healthcare visits simpler,
               more organized, and patient-friendly.
@@ -655,10 +712,10 @@ function Home() {
           </div>
 
 
-          {/* FOOTER LINKS */}
-
           <div className="footer-links">
 
+
+            {/* PATIENT */}
 
             <div>
 
@@ -666,11 +723,9 @@ function Home() {
                 Patient
               </h4>
 
-
-              <Link to="/patient-signup">
+              <Link to="/patient-login">
                 Get Token
               </Link>
-
 
               <Link to="/patient-login">
                 Patient Login
@@ -679,19 +734,30 @@ function Home() {
             </div>
 
 
+            {/* STAFF */}
+
             <div>
 
               <h4>
                 Staff
               </h4>
 
-
               <Link to="/nurse-login">
-                Nurse Login
+                Hospital Staff Login
+              </Link>
+
+              <Link to="/doctor-login">
+                Doctor Login
+              </Link>
+
+              <Link to="/super-admin-login">
+                Super Admin
               </Link>
 
             </div>
 
+
+            {/* CONTACT */}
 
             <div>
 
@@ -699,11 +765,9 @@ function Home() {
                 Contact
               </h4>
 
-
               <span>
                 Hospital Reception
               </span>
-
 
               <span>
                 Emergency: 108
@@ -711,28 +775,22 @@ function Home() {
 
             </div>
 
-
           </div>
-
 
         </div>
 
 
-        {/* FOOTER BOTTOM */}
-
         <div className="footer-bottom">
 
           <span>
-            © 2026 SPN Care Hospital
+            © 2026 Queue Care
           </span>
-
 
           <span>
             Patient Token Management System
           </span>
 
         </div>
-
 
       </footer>
 
